@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  bpcalculator:
+    image: ${DOCKER_REGISTRY-}bpcalculator
+    build:
+      context: .
+      dockerfile: BPCalculator/Dockerfile
