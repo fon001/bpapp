@@ -6,7 +6,7 @@ WORKDIR /app
 EXPOSE 80
 
 #FROM mcr.microsoft.com/dotnet/sdk:3.0 AS build
-FROM mcr.microsoft.com/dotnet/sdk/runtime:3.0 AS build
+FROM mcr.microsoft.com/dotnet/core/runtime:3.0 AS build
 WORKDIR /src
 COPY ["BPCalculator/BPCalculator.csproj", "BPCalculator/"]
 RUN dotnet restore "BPCalculator/BPCalculator.csproj"
