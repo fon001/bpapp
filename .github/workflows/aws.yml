@@ -8,7 +8,7 @@ on:
 
 env:
   AWS_REGION: eu-west-1                  
-  ECR_REPOSITORY: MY_ECR_REPOSITORY
+  ECR_REPOSITORY: bpcalculator
   ECS_SERVICE: bpappservice
   ECS_CLUSTER: bpappcluster
   ECS_TASK_DEFINITION: bptaskdefination
