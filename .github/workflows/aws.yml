@@ -49,7 +49,7 @@ jobs:
         
     - name: Download task def
       run: |
-        aws ecs describe-task-definition --task-definition bptaskdefination --query taskDefinition > t
+        aws ecs describe-task-definition --task-definition bptaskdefination --query taskDefinition > task-definition.json
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
