@@ -47,17 +47,17 @@ jobs:
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
       
       
-    #- name: Download task definition
-      #run: |
-        #aws ecs describe-task-definition --task-definition bptaskdefination --query taskDefinition > task-definition.json | jq 'del(.compatibilities,.taskDefinitionArn,.requiresAttributes,.revision,.status)'
+    - name: Download task definition
+      run: |
+        aws ecs describe-task-definition --task-definition bptaskdefination --query taskDefinition > task-definition.json | jq 'del(.compatibilities,.taskDefinitionArn,.requiresAttributes,.revision,.status)'
      
-    - name: Fill in the new image ID in the Amazon ECS task definition
-      id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
-      with:
-        task-definition: task-definition.json
-        container-name: bpcontainer
-        image: ${{ steps.build-image.outputs.image }} #/bpcontainer:${{ github.sha }}
+    #- name: Fill in the new image ID in the Amazon ECS task definition
+      #id: task-def
+      #uses: aws-actions/amazon-ecs-render-task-definition@v1
+      #with:
+        #task-definition: task-definition.json
+        #container-name: bpcontainer
+        #image: ${{ steps.build-image.outputs.image }} #/bpcontainer:${{ github.sha }}
 
 
     - name: Deploy Amazon ECS task definition
